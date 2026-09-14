@@ -17,11 +17,11 @@ tts = ToucanTTSInterface(
 
 tts.set_utterance_embedding(path_to_reference_audio="/home/gahnluca/audio_src/wahlstrom_2-enhanced-v2_(mp3cut.net).wav")
 tts.set_phonemizer_language("swe")
-tts.set_accent_language("deu")
+
 
 
 deutscher_text = "Ich will mir nicht bei allem überlegen, ob ich es darf, oder ob ich es nicht darf."
-ausgabe_pfad = "schwedischer_akzent_änderung_v6.wav"
+ausgabe_pfad = "schwedischer_akzent_änderung_v7.wav"
 
 # --- SCHWEDISCHE SPRACH-ID ERMITTELN ---
 swe_lang_key = None
@@ -68,7 +68,7 @@ with torch.no_grad():
     modified_ipa = modified_ipa.replace('rt', 'ʈ')  # r + t -> retroflexes t
     modified_ipa = modified_ipa.replace('rd', 'ɖ')  # r + d -> retroflexes d
     modified_ipa = modified_ipa.replace('rn', 'ɳ')  # r + n -> retroflexes n
-    modified_ipa = modified_ipa.replace('rl', 'ɭ')  # r + l -> retroflexes l
+    #modified_ipa = modified_ipa.replace('rl', 'ɭ')  # r + l -> retroflexes l
     modified_ipa = modified_ipa.replace('rs', 'ʂ')  # r + s -> retroflexes s (sh-Klang)
 
     # 4. Anlaut-Anpassungen
@@ -153,7 +153,7 @@ print(f"Toucan-Audio generiert! Gespeichert unter '{ausgabe_pfad}'")
 # ==========================================
 print("\n--- Starte Qualitäts-Upgrade mit RVC ---")
 
-finale_ausgabe_pfad = "finale_high_quality_audio_v6.wav"
+finale_ausgabe_pfad = "finale_high_quality_audio_v7.wav"
 rvc_model_pfad = "Pearl-SU-Multilanguage-Hybrid.pth"
 rvc_index_pfad = "added_IVF140_Flat_nprobe_1_Pearl-SU-Multilanguage-Hybrid_v2.index"
 
